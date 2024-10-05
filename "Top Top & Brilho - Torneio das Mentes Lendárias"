@@ -1,140 +1,61 @@
-HTML (index.html)
-html
-Copiar código
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Top & Brilho - Torneio das Mentes Lendárias</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Top Top e Brilho - Torneio das Mentes Lendárias</title>
 </head>
 <body>
     <div class="container">
         <h1>Bem-vindo ao Torneio das Mentes Lendárias!</h1>
-        <div id="game-area">
-            <p id="story">Sua jornada começa em Topa Lumina. O que você deseja fazer?</p>
-            <div id="choices">
-                <button onclick="choose(1)">Explorar a Floresta das Ideias Perdidas</button>
-                <button onclick="choose(2)">Visitar o Sábio Alquimista</button>
-                <button onclick="choose(3)">Preparar-se para a Batalha</button>
-            </div>
+        <div id="gameArea">
+            <p id="message">Clique no botão para iniciar o jogo!</p>
+            <button id="startButton">Iniciar Jogo</button>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-2. CSS (styles.css)
-css
-Copiar código
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-    color: #333;
+    background-color: #f0f0f0;
     text-align: center;
-    padding: 20px;
 }
 
 .container {
-    max-width: 600px;
     margin: auto;
-    border: 2px solid #4caf50;
-    border-radius: 10px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin-top: 100px; /* Para centralizar verticalmente */
 }
 
 h1 {
-    color: #4caf50;
+    color: #4A90E2;
 }
 
 button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #4caf50;
+    background-color: #4CAF50;
     color: white;
-    transition: background-color 0.3s;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 button:hover {
     background-color: #45a049;
 }
-3. JavaScript (script.js)
-javascript
-Copiar código
-function choose(option) {
-    let story = document.getElementById('story');
 
-    switch (option) {
-        case 1:
-            story.innerHTML = "Você decidiu explorar a Floresta das Ideias Perdidas. Enigmas e segredos aguardam por você!";
-            document.getElementById('choices').innerHTML = `
-                <button onclick="choose(4)">Resolver um enigma filosófico</button>
-                <button onclick="choose(5)">Encontrar um campeão luminoso</button>
-            `;
-            break;
-        case 2:
-            story.innerHTML = "Você visitou o Sábio Alquimista. Ele oferece poções mágicas!";
-            document.getElementById('choices').innerHTML = `
-                <button onclick="choose(6)">Aceitar uma poção</button>
-                <button onclick="choose(7)">Recusar e voltar para a arena</button>
-            `;
-            break;
-        case 3:
-            story.innerHTML = "Você se prepara para a batalha. Os campeões estão prontos!";
-            document.getElementById('choices').innerHTML = `
-                <button onclick="choose(8)">Desafiar um oponente</button>
-                <button onclick="choose(9)">Estudar suas cartas</button>
-            `;
-            break;
-        case 4:
-            story.innerHTML = "Você resolveu o enigma e ganhou um ponto de sabedoria!";
-            document.getElementById('choices').innerHTML = `
-                <button onclick="resetGame()">Voltar ao início</button>
-            `;
-            break;
-        case 5:
-            story.innerHTML = "Você encontrou um campeão luminoso e agora tem mais força em suas batalhas!";
-            document.getElementById('choices').innerHTML = `
-                <button onclick="resetGame()">Voltar ao início</button>
-            `;
-            break;
-        case 6:
-            story.innerHTML = "Você aceita a poção! Prepare-se para usá-la na batalha!";
-            document.getElementById('choices').innerHTML = `
-                <button onclick="resetGame()">Voltar ao início</button>
-            `;
-            break;
-        case 7:
-            story.innerHTML = "Você decide voltar para a arena, sem a poção.";
-            document.getElementById('choices').innerHTML = `
-                <button onclick="resetGame()">Voltar ao início</button>
-            `;
-            break;
-        case 8:
-            story.innerHTML = "Você desafiou um oponente e começou a batalha!";
-            document.getElementById('choices').innerHTML = `
-                <button onclick="resetGame()">Voltar ao início</button>
-            `;
-            break;
-        case 9:
-            story.innerHTML = "Você estuda suas cartas e se prepara para uma estratégia!";
-            document.getElementById('choices').innerHTML = `
-                <button onclick="resetGame()">Voltar ao início</button>
-            `;
-            break;
-    }
+#gameArea {
+    margin-top: 20px;
 }
+document.getElementById("startButton").addEventListener("click", startGame);
 
-function resetGame() {
-    document.getElementById('story').innerHTML = "Sua jornada começa em Topa Lumina. O que você deseja fazer?";
-    document.getElementById('choices').innerHTML = `
-        <button onclick="choose(1)">Explorar a Floresta das Ideias Perdidas</button>
-        <button onclick="choose(2)">Visitar o Sábio Alquimista</button>
-        <button onclick="choose(3)">Preparar-se para a Batalha</button>
-    `;
+function startGame() {
+    document.getElementById("message").innerText = "O jogo começou! Prepare-se para liderar seus campeões luminares.";
+    // Aqui você pode adicionar mais lógica para iniciar o jogo, como apresentar os campeões, feitiços etc.
 }
